@@ -1,0 +1,35 @@
+1/17/21
+COMPLETED
+- Figured out how to parse inbox object to identify strings (aka Tickers) which are later
+passed to API_query function.
+- Cleaned up API_query function
+- 
+Current functions being used are as follows:
+inbox.py - Checks the inbox for new messages. 
+sendMail.py - Send message to list of users. Main function for sending price alerts.
+API_query.py - Function used to query crypto currency data from coin market cap API. 
+Function returns json object --> parsed --> converted to float(coinPrice)
+crypto_alert.py - This is currently the main program. Ideally everything will be called
+from this program.
+
+NEED TO DO
+1.) Parse inbox object to identify who the message is from. This will be used to 
+eventually update database as well as identify who to send message to.
+2.) Eventually set up a Postgress db and log all queries to db
+3.) Figure out how to organize user info. and requests
+
+1/24/21
+COMPLETED
+- Figured out how to bundle api calls/queries in order to retrieve multiple tickers within 
+each call. 
+- Learned about postgreSQL databases. 
+
+NEED TO DO
+1.) Refine the API_query.py function to take in new "multi-ticker" argument and return 
+the price of each ticker. This will eventually get used for step --> 2)
+2.) With updated API_query function, update a db with a timestamp and price for each ticker.
+Database will query an API request 333 times per day (current limit) and update.
+3.) Eventually the program will need to update a "ticker tracking list" based on user
+requests. For all ticker not found in database --> add to ticker list --> add to database.
+4.) Update the sendMail function to send price updates from queries to the database.
+

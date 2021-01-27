@@ -1,0 +1,15 @@
+CREATE TABLE users (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name VARCHAR(50),
+    email VARCHAR(100),
+    phone VARCHAR(50)
+);
+
+CREATE TABLE tickers (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    time TIMESTAMP NOT NULL,
+    BTC DECIMAL (6,2),
+    ETH DECIMAL (6,2),
+    LINK DECIMAL (6,2),
+    ADA DECIMAL (6,2)
+);
