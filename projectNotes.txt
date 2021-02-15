@@ -33,3 +33,17 @@ Database will query an API request 333 times per day (current limit) and update.
 requests. For all ticker not found in database --> add to ticker list --> add to database.
 4.) Update the sendMail function to send price updates from queries to the database.
 
+2/6/21
+NOTE: A modification from previous direction is to join from two lists: (1) headers from 
+database and (2) price and time from the API quieries. The previous idea was to turn the
+database into a pandas dataframe, insert updates to the dataframe and then update the
+database however after some further thought this method has some scaling and memory 
+issues.
+
+2/14/21
+COMPLETED
+- Cleaned up updatePrice_db.py program: Program now reads headers from database and quieries 
+the COinMarketCap API for updated ticker prices. Once this data is retreived, a second function
+is called which formats the data into a pandas dataframe in order to write to the database.
+sqlalchemy is utilized to write pandas dataframes to my psql database.
+
